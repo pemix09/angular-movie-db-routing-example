@@ -1,3 +1,4 @@
+import { HttpMoviesService } from './../../services/http-movies.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./http-test.component.css'],
 })
 export class HttpTestComponent {
-  constructor() {}
+  constructor(private http: HttpMoviesService) {}
 
-  get() {}
+  get() {
+    //won't return anything, if we don't subscribe to it
+    this.http.getMovies().subscribe();
+  }
 
   post() {}
 
