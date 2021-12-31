@@ -24,4 +24,8 @@ export class HttpMoviesService {
     return this.http.get<HttpResponse<Movie[]>>(this.url + '/movies',{observe: 'response'})
       .pipe(tap(console.log));
   }
+
+  postMovie(movie: Movie){
+    return this.http.post(this.url + '/movies', movie).pipe(tap(console.log));
+  }
 }

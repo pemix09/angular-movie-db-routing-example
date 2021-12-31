@@ -1,5 +1,6 @@
 import { HttpMoviesService } from './../../services/http-movies.service';
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-http-test',
@@ -14,7 +15,19 @@ export class HttpTestComponent {
     this.http.getMovies().subscribe();
   }
 
-  post() {}
+  post() {
+    const movie: Movie ={
+      country: "Poland",
+      director: "ktoś tam",
+      category: "fantasy",
+      plot: "bestia z półnoy spaliła naszą wioskę",
+      poster: null,
+      year: "2001",
+      title: "Wiedźmin",
+      imdbRating: "10.0"
+    }
+    this.http.postMovie(movie).subscribe();
+  }
 
   put() {}
 
